@@ -6,9 +6,9 @@ node {
     
     stage "CheckAndroidBuildStatus"
     
-    sh "echo 'Helow World !'"
+    echo '$PWD'
     
-    sh "docker images | grep mingc/android-build-box"
+    sh "ls"   
     
     stage "BuildAndroidPorject"
     
