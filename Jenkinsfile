@@ -10,7 +10,7 @@ node{
                sh "echo 'sdk.dir=/opt/android-sdk' > local.properties" 
            }
            stage ('BuildAndroidPorject'){
-               sh "docker run --rm -v /jenkins/workspace/android-docker-build-demo:/project android-build-box bash -c 'cd /project; ./gradlew build'"
+               sh "docker run --rm -v /jenkins/workspace/android-docker-build-demo:/project android-build-box bash -c 'cd /project; ./gradlew assembleDebug'"
                sh "cd app/build/outputs/ && tree ./apk"
            }
            stage('DeploytoHockeyapp'){
