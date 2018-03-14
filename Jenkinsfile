@@ -11,8 +11,9 @@ node{
            }
            stage ('BuildAndroidPorject'){
                sh "docker run --rm -v /jenkins/workspace/android-docker-build-demo:/project android-build-box bash -c 'cd /project; ./gradlew build'"
+               sh "cd /jenkins/workspace/android-docker-build-demo/app/build/outputs && tree ./apk"
            }
-
+      
        }catch(error)
        {
               currentBuild.result = "FAILURE"
