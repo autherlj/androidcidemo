@@ -15,7 +15,7 @@ node{
            }
            stage('DeploytoHockeyapp'){
                step([$class: 'HockeyappRecorder', applications: [[apiToken: '32387bb0293546d0935a0c2041dbff7e', downloadAllowed: true, 
-                    filePath: 'app/build/outputs/apk/release/app-release-unsigned.apk', 
+                    filePath: 'app/build/outputs/apk/debug/app-debug.apk',
                     mandatory: false, notifyTeam: false, releaseNotesMethod: [$class: 'NoReleaseNotes'], 
                     uploadMethod: [$class: 'AppCreation', publicPage: false]]], debugMode: false, failGracefully: false])
            }
