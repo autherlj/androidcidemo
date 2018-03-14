@@ -4,7 +4,7 @@ node {
     
     stage "CheckoutCode"
     
-    sh "echo $PWD && ls"
+    echo $PWD && ls
     
     stage "CheckAndroidBuildStatus"
     
