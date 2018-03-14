@@ -1,7 +1,8 @@
 node {
-    stage "Checkout"
     
     checkout scm
+    
+    stage "CheckoutCode"
     
     sh "echo $PWD && ls"
     
