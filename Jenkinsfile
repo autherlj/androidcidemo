@@ -1,12 +1,12 @@
 node {
+       
+    stage "CheckoutCode"
     
     checkout scm
     
-    stage "CheckoutCode"
-    
-    echo $PWD && ls
-    
     stage "CheckAndroidBuildStatus"
+    
+    sh "echo 'Helow World !'"
     
     sh "docker images | grep mingc/android-build-box"
     
