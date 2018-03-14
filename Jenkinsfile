@@ -6,9 +6,13 @@ node {
     
     stage "CheckAndroidBuildStatus"
     
-    echo '$PWD'
+    sh "echo '$PWD'"
     
-    sh "ls"   
+    sh "ls && mkdir project"
+       
+    sh "cp ./* ./project"
+      
+    sh "docker images"   
     
     stage "BuildAndroidPorject"
     
