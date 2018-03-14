@@ -1,4 +1,4 @@
-node('node') {
+node{
               currentBuild.result = "SUCCESS"  
     try{
            stage ('CheckoutCode'){
@@ -6,7 +6,7 @@ node('node') {
            }
            stage ('PrepreAndroidEnv'){
                sh "pwd && ls"      
-               sh "docker images | grep mingc/android-build-box"
+               sh "docker images | grep android-build-box"
                sh "echo 'sdk.dir=/opt/android-sdk' > local.properties" 
            }
            stage ('BuildAndroidPorject'){
