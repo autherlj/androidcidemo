@@ -13,6 +13,12 @@ node{
                sh "docker run --rm -v /jenkins/workspace/android-docker-build-demo:/project android-build-box bash -c 'cd /project; ./gradlew build'"
                sh "cd /jenkins/workspace/android-docker-build-demo/app/build/outputs && tree ./apk"
            }
+           stage('DeploytoHockeyapp'){
+               step([$class: 'HockeyappRecorder', applications: [[apiToken: '32387bb0293546d0935a0c2041dbff7e', downloadAllowed: true, 
+                    filePath: '/jenkins/workspace/android-docker-build-demo/app/build/outputs/apk/release/app-release-unsigned.apk', 
+                    mandatory: false, notifyTeam: false, releaseNotesMethod: [$class: 'NoReleaseNotes'], 
+                    uploadMethod: [$class: 'AppCreation', publicPage: false]]], debugMode: false, failGracefully: false])
+           }
       
        }catch(error)
        {
