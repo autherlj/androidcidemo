@@ -8,7 +8,7 @@ node {
     
     sh "pwd && ls && mkdir project"
        
-    sh "cp ./* ./project"
+    sh "cp -r ./* ./project && ls"
       
     sh "docker images"   
     
