@@ -4,17 +4,15 @@ node {
     
     checkout scm
     
-    stage "CheckAndroidBuildStatus"
+    stage "PrepreAndroidEnv"
     
-    sh "pwd && ls && mkdir project"
-       
-    sh "cp -r ./* ./project && ls"
+    sh "pwd && ls"      
       
-    sh "docker images"   
+    sh "docker images | grep mingc/android-build-box"   
     
     stage "BuildAndroidPorject"
     
-    sh "docker run --rm -v '$PWD'/project:/project mingc/android-build-box bash -c 'cd /project; ./gradlew build'" 
+    sh "docker run --rm -v /root/.jenkins/workspace/android-docker-build-demo:/project mingc/android-build-box bash -c 'cd /project; ./gradlew build'" 
         
     stage "Archive"
 
