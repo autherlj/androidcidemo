@@ -6,9 +6,7 @@ node {
     
     stage "CheckAndroidBuildStatus"
     
-    sh "echo '$PWD'"
-    
-    sh "ls && mkdir project"
+    sh "pwd && ls && mkdir project"
        
     sh "cp ./* ./project"
       
